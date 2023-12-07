@@ -1,0 +1,90 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="sap.btp.freightvendorui.controller.View1" displayBlock="true"><Page id="page" title="Freight Vendors">
+        <content>
+        <FlexBox width="100%" id="box0" alignContent="Center" alignItems="Center" direction="Row">
+                <FlexBox width="100%" id="box1" alignContent="Center" alignItems="Center" direction="Column">
+                <items><Text xmlns="sap.m" text="Add New Freight Vendors" id="text"/>
+                    <Input xmlns="sap.m" id="freightVendorName" placeholder="Freight Vendor Name"/>
+                    <Input xmlns="sap.m" id="pickUpLocation" placeholder="Pick Up Location"/>
+                    <Input xmlns="sap.m" id="destinationLocation" placeholder="Destination Location"/>
+                    <Input xmlns="sap.m" id="deliveryInDays" placeholder="Delivery In Days"/><Input xmlns="sap.m" id="contact" placeholder="Contact"/>
+                    <Input xmlns="sap.m" id="price" placeholder="Price"/>
+                    <Button xmlns="sap.m" id="add" icon="sap-icon://add" press="addNewFreightVendor" text="Add"/>
+                </items>
+                </FlexBox>
+                <FlexBox width="100%" id="box2" alignContent="Center" alignItems="Center" direction="Column">
+                     <items><Text xmlns="sap.m" text="Update Freight Vendors" id="updatetext"/>
+                      <Select xmlns="sap.m" id="selectedFreight" items="{/freightVendorDetails}" change="handleSelectCustomer">
+                            <items>
+                                <core:Item xmlns:core="sap.ui.core" key="{FREIGHTVENDORID}" text="{FREIGHTVENDORID}" id="selectedValue"/>
+                            </items>
+                        </Select>
+                    <Input xmlns="sap.m" placeholder="Freight Vendor Name" value="{/updateFreightData/FREIGHTVENDORNAME}" id="updateName"/>
+                    <Input xmlns="sap.m" placeholder="Pick Up Location" value="{/updateFreightData/PICKUPLOCATION}" id="updatePickUpLocation"/>
+                    <Input xmlns="sap.m" placeholder="Destination Location" value="{/updateFreightData/DESTINATIONLOCATION}" id="updateDestination"/>
+                    <Input xmlns="sap.m" placeholder="Delivery In Days" value="{/updateFreightData/DELIVERYINDAYS}" id="updateDeliveryDays"/>
+                    <Input xmlns="sap.m" placeholder="Price" value="{/updateFreightData/PRICE}" id="updatePrice"/>
+                    <Input xmlns="sap.m" placeholder="Contact" value="{/updateFreightData/CONTACT}" id="updateContact"/>
+                    <Button xmlns="sap.m" text="Update" id="button1" icon="sap-icon://edit" press="updateCustomer"/>
+                    </items>
+                </FlexBox>
+            </FlexBox>
+        <Table noDataText="Drop column list items here and columns in the area above" id="tablecontent" items="{/freightVendorDetails}" growing="true" growingThreshold="10" >
+            <columns>
+                <Column id="customerName">
+                    <header>
+                        <Label text="Freight Vendor Id" id="label0"/>
+                    </header>
+                </Column>
+                <Column id="customerLocation">
+                    <header>
+                        <Label text="Freight Vendor Name" id="label1"/>
+                    </header>
+                </Column>
+                <Column id="customerId">
+                    <header>
+                        <Label text="Pick Up Location" id="label2"/>
+                    </header>
+                </Column>
+                <Column id="customer">
+                    <header>
+                        <Label text="Destination  Location" id="label4"/>
+                    </header>
+                </Column>
+                <Column id="customerd">
+                    <header>
+                        <Label text="Delivery In Days" id="label5"/>
+                    </header>
+                </Column>
+                <Column id="customerde">
+                    <header>
+                        <Label text="Price" id="label6"/>
+                    </header>
+                </Column>
+                <Column id="customernum">
+                    <header>
+                        <Label text="Contact" id="label7"/>
+                    </header>
+                </Column>
+                <Column id="column0">
+                    <header>
+                        <Label text="Delete" id="label3"/>
+                    </header>
+                </Column></columns>
+                <items>
+                <ColumnListItem type="Active" id="item0">
+                    <cells>
+                        <Text text="{FREIGHTVENDORID}" id="text0"/>
+                        <Text text="{FREIGHTVENDORNAME}" id="text1"/>
+                        <Text text="{PICKUPLOCATION}" id="text2"/>
+                        <Text text="{DESTINATIONLOCATION}" id="text3"/>
+                        <Text text="{DELIVERYINDAYS}" id="text4"/>
+                        <Text text="{PRICE}" id="text5"/>
+                        <Text text="{CONTACT}" id="text6"/>
+                        <Button xmlns="sap.m" press="deleteCustomer" id="deleteIcon" icon="sap-icon://delete"/>
+                    </cells>
+                </ColumnListItem>
+            </items></Table>
+        </content>
+    </Page>
+</mvc:View>
+
