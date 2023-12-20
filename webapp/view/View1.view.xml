@@ -18,17 +18,17 @@
                                 <core:Item xmlns:core="sap.ui.core" key="{FREIGHTVENDORID}" text="{FREIGHTVENDORID}" id="selectedValue"/>
                             </items>
                         </Select>
-                    <Input xmlns="sap.m" placeholder="Freight Vendor Name" value="{/updateFreightData/FREIGHTVENDORNAME}" id="updateName"/>
-                    <Input xmlns="sap.m" placeholder="Pick Up Location" value="{/updateFreightData/PICKUPLOCATION}" id="updatePickUpLocation"/>
-                    <Input xmlns="sap.m" placeholder="Destination Location" value="{/updateFreightData/DESTINATIONLOCATION}" id="updateDestination"/>
-                    <Input xmlns="sap.m" placeholder="Delivery In Days" value="{/updateFreightData/DELIVERYINDAYS}" id="updateDeliveryDays"/>
-                    <Input xmlns="sap.m" placeholder="Price" value="{/updateFreightData/PRICE}" id="updatePrice"/>
-                    <Input xmlns="sap.m" placeholder="Contact" value="{/updateFreightData/CONTACT}" id="updateContact"/>
+                            <Input xmlns="sap.m" placeholder="Freight Vendor Name" value="{/updateFreightData/FREIGHTVENDORNAME}" id="updateName"/>
+                            <Input xmlns="sap.m" placeholder="Pick Up Location" value="{/updateFreightData/PICKUPLOCATION}" id="updatePickUpLocation"/>
+                            <Input xmlns="sap.m" placeholder="Destination Location" value="{/updateFreightData/DESTINATIONLOCATION}" id="updateDestination"/>
+                            <Input xmlns="sap.m" placeholder="Delivery In Days" value="{/updateFreightData/DELIVERYINDAYS}" id="updateDeliveryDays"/>
+                            <Input xmlns="sap.m" placeholder="Contact" value="{/updateFreightData/CONTACT}" id="updateContact" tooltip="Contact"/>
+                            <Input xmlns="sap.m" placeholder="Price" value="{/updateFreightData/PRICE}" id="updatePrice"/>
                     <Button xmlns="sap.m" text="Update" id="button1" icon="sap-icon://edit" press="updateCustomer"/>
                     </items>
                 </FlexBox>
             </FlexBox>
-        <Table noDataText="Drop column list items here and columns in the area above" id="tablecontent" items="{/freightVendorDetails}" growing="true" growingThreshold="10" >
+        <Table noDataText="Drop column list items here and columns in the area above" id="tablecontent" items="{/freightVendorDetails}" growing="true" growingThreshold="10">
             <columns>
                 <Column id="customerName">
                     <header>
@@ -87,4 +87,3 @@
         </content>
     </Page>
 </mvc:View>
-
