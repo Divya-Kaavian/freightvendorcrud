@@ -13,6 +13,8 @@ sap.ui.define([
         "use strict";
 
         let selectedVendorId;
+
+        // const freightUrl  = process.env.FREIGHT_VENDOR_APP;
         // get the freight vendor details
         return Controller.extend("sap.btp.freightvendorui.controller.View1", {
             onInit: function () {
@@ -40,7 +42,7 @@ sap.ui.define([
             getFreightVendorsDetails: async function () {
                 try {
                     // Fetch data asynchronously
-                    const response = await fetch('https://freightVendorInfo-surprised-otter-nk.cfapps.us10-001.hana.ondemand.com/getData');
+                    const response = await fetch('https://freightVendorInfo-proud-tiger-oi.cfapps.us10-001.hana.ondemand.com/getData');
                     const data = await response.json();
 
                     // Set data to the model
@@ -71,7 +73,7 @@ sap.ui.define([
                 const contact = this.getView().byId('contact').getValue();
                 const deliveryInDays = this.getView().byId('deliveryInDays').getValue();
 
-                fetch('https://freightVendorInfo-surprised-otter-nk.cfapps.us10-001.hana.ondemand.com/addData', {
+                fetch('https://freightVendorInfo-proud-tiger-oi.cfapps.us10-001.hana.ondemand.com/addData', {
                     'method': 'POST',
                     'body': JSON.stringify({ freightVendorName, destinationLocation, pickUpLocation, deliveryInDays, price, contact }),
                     'headers': { 'content-type': 'application/json' }
@@ -112,7 +114,7 @@ sap.ui.define([
                 const contact = this.getView().byId("updateContact").getValue();
 
                 console.log(freightVendorName);
-                fetch('https://freightVendorInfo-surprised-otter-nk.cfapps.us10-001.hana.ondemand.com/updateData', {
+                fetch('https://freightVendorInfo-proud-tiger-oi.cfapps.us10-001.hana.ondemand.com/updateData', {
                     method: 'PUT',
                     body: JSON.stringify({ freightVendorId: selectedVendorId, freightVendorName: freightVendorName, pickUpLocation: pickUpLocation, destinationLocation: destinationLocation, deliveryInDays: deliveryInDays, price: price, contact: contact }),
                     headers: { 'Content-Type': 'application/json' }
@@ -130,7 +132,7 @@ sap.ui.define([
             deleteCustomer: function (event) {
                 const freightvendorid = event.getSource().getParent().getBindingContext().getProperty("FREIGHTVENDORID/");
 
-                fetch(`https://freightVendorInfo-surprised-otter-nk.cfapps.us10-001.hana.ondemand.com/deleteData/${freightvendorid}`, {
+                fetch(`https://freightVendorInfo-proud-tiger-oi.cfapps.us10-001.hana.ondemand.com/deleteData/${freightvendorid}`, {
                     method: 'DELETE'
                 })
                     .then(res => res.json())
